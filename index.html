@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TACTICAL OPS v7.0</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="setup">
+  <div class="setup-header">
+    <h1>TACTICAL OPS</h1>
+    <div class="ver">v7.0 / MODULAR ENGINE</div>
+  </div>
+  <div class="setup-body">
+    <div>
+      <div class="section-title">01 SELECT THEATER</div>
+      <div class="map-grid" id="mapGrid"></div>
+    </div>
+    <div>
+      <div class="section-title">02 FORCE COMPOSITION</div>
+      <div class="team-panel red">
+        <div class="team-head"><div class="team-badge red">A</div><div class="label red">CRIMSON FORCE</div></div>
+        <div class="field"><div class="field-label">UNIT COUNT <span class="val" id="redCountVal">30</span></div><input type="range" id="redCount" min="3" max="100" value="30"></div>
+        <div class="field"><div class="field-label">AI INTELLIGENCE</div><div class="ai-select" data-team="red"><div class="ai-opt active" data-ai="veteran">Veteran</div><div class="ai-opt" data-ai="elite">Elite</div></div></div>
+      </div>
+      <div class="team-panel blue">
+        <div class="team-head"><div class="team-badge blue">B</div><div class="label blue">COBALT FORCE</div></div>
+        <div class="field"><div class="field-label">UNIT COUNT <span class="val" id="blueCountVal">30</span></div><input type="range" id="blueCount" min="3" max="100" value="30"></div>
+        <div class="field"><div class="field-label">AI INTELLIGENCE</div><div class="ai-select" data-team="blue"><div class="ai-opt active" data-ai="veteran">Veteran</div><div class="ai-opt" data-ai="elite">Elite</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-title">03 PARAMETERS</div>
+      <div class="team-panel" style="border-left:3px solid var(--accent)">
+        <div class="param-row"><span class="lbl">Sound Effects</span><div class="toggle on" data-param="sound"></div></div>
+        <div class="param-row"><span class="lbl">Bullet Tracers</span><div class="toggle on" data-param="tracers"></div></div>
+        <div class="param-row"><span class="lbl">Host Setup Mode</span><div class="toggle" data-param="hostMode"></div></div>
+      </div>
+    </div>
+    <div class="deploy-section"><button class="deploy-btn" id="deployBtn">DEPLOY FORCES</button></div>
+  </div>
+</div>
+
+<div id="battle">
+  <canvas id="game"></canvas>
+  <div class="hud-top">
+    <div class="team-stat red"><div class="badge">A</div><div class="info"><div class="name">CRIMSON</div><div class="nums"><b id="redAlive">0</b> ALIVE</div></div></div>
+    <div class="center-info"><div class="timer" id="timer">00:00</div><div class="phase" id="phase">ENGAGEMENT ACTIVE</div></div>
+    <div class="team-stat blue"><div class="badge">B</div><div class="info"><div class="name">COBALT</div><div class="nums"><b id="blueAlive">0</b> ALIVE</div></div></div>
+  </div>
+  <div class="hud-bottom">
+    <div class="controls">
+      <button class="ctrl-btn" id="exitBtn"><span>✕</span><span class="tip">Abort</span></button>
+    </div>
+  </div>
+  <div id="placementUI">
+    <div class="place-header"><div class="place-team" id="placeTeam">RED TEAM SETUP</div><div class="place-budget">$<span id="budgetVal">5000</span></div></div>
+    <div class="roster" id="rosterBtns"></div>
+    <div class="place-actions"><button class="place-btn primary" id="startMatch">LAUNCH BATTLE</button></div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
